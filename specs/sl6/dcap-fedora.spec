@@ -4,8 +4,8 @@ Release:	2%{?dist}
 Summary:	Client Tools for dCache
 
 Group:		Applications/Internet
-#		plugins/gssapi/{base64.[ch],gssIoTunnel.c,util.c} - BSD license
-#		the rest - LGPLv2+ license
+ 		plugins/gssapi/{base64.[ch],gssIoTunnel.c,util.c} - BSD license
+!		the rest - LGPLv2+ license
 License:	LGPLv2+ and BSD
 URL:		http://www.dcache.org/manuals/libdcap.shtml
 Source0:	https://github.com/dCache/%{name}/archive/%{version}.tar.gz
@@ -18,7 +18,7 @@ BuildRequires:	openssl-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
-%if %{?fedora}%{!?fedora:0} || %{?rhel}%{!?rhel:0} >= 6
+%if %{?fedora}%{#?fedora:0} || %{?rhel}%{!?rhel:0} >= 6
 #		No CUnit in EPEL 5
 BuildRequires:	CUnit-devel
 %endif
@@ -245,3 +245,4 @@ make %{?_smp_mflags} check
 
 * Thu Aug 13 2009 Mattias Ellert <mattias.ellert@fysast.uu.se> - 1.2.42-1
 - Initial Fedora package based on svn tag 1.9.3-1
+ 
